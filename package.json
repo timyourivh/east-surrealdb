@@ -2,7 +2,7 @@
   "name": "east-surrealdb",
   "version": "1.0.0",
   "description": "SurrealDB adapter for the east database migration tool.",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc"
@@ -18,9 +18,11 @@
   "author": "Tim van Herwijnen <timyourivh@gmail.com>",
   "license": "ISC",
   "peerDependencies": {
-    "surrealdb.node": "^0.3.0"
+    "surrealdb.js": "^0.11.0"
   },
   "devDependencies": {
+    "@types/node": "^20.9.0",
+    "east": "^2.0.3",
     "typescript": "^5.2.2"
   }
 }
