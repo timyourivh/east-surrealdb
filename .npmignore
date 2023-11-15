@@ -1,0 +1,11 @@
+# Act as whitelist
+**/*
+
+# Compiled code
+!dist/**/*
+
+# Migration file templates
+!migrationTemplates/*
+
+# Required files
+!package.json
