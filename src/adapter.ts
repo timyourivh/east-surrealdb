@@ -33,10 +33,14 @@ class SurrealDBAdapter implements Adapter<Surreal> {
 
     await this.db.signin(this.credentials)
 
+    const tableExists = (await this.db.query('INFO FOR DB'))[0]?.tables[this.migrationTable]
+
+    if (!tableExists) {
     await this.db.query(`DEFINE TABLE ${this.migrationTable} SCHEMAFULL`)
     await this.db.query(`DEFINE FIELD name ON TABLE ${this.migrationTable} TYPE string`)
     await this.db.query(`DEFINE INDEX nameIndex ON TABLE ${this.migrationTable} COLUMNS name UNIQUE`)
     await this.db.query(`DEFINE FIELD date ON TABLE ${this.migrationTable} TYPE datetime DEFAULT time::now()`)
+    }
 
     return this.db
   }
