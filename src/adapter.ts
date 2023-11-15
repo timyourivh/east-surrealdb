@@ -47,9 +47,8 @@ class SurrealDBAdapter implements Adapter<Surreal> {
     return path.join(__dirname, '..', 'migrationTemplates', ('async.' + sourceMigrationExtension));
   }
   async getExecutedMigrationNames(): Promise<string[]> {
-    const result = (await this.db.query(`SELECT name FROM ${this.migrationTable}`))
+    const result: MigrationRecord[] = (await this.db.query(`SELECT name FROM ${this.migrationTable}`))
     
-    // @ts-ignore-line
     const names = Array.isArray(result[0]) ? result[0].map(({ name }: { name: string }) => name) : [];
 
     return names

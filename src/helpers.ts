@@ -6,6 +6,11 @@ export type Credentials = {
   scope: string
 }
 
+export type MigrationRecord = {
+  name: string
+  date: string
+}
+
 export function validateCredentials(credentials: Partial<Credentials>): credentials is Credentials {
   const requiredFields: (keyof Credentials)[] = ['username', 'password', 'namespace', 'database'];
 
