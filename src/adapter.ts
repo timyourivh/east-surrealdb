@@ -1,14 +1,14 @@
-import type { Adapter } from 'east';
-import path from 'path';
-import { validateCredentials, Credentials, MigrationRecord } from './helpers';
-import Surreal from 'surrealdb.js';
+import type { Adapter } from 'east'
+import path from 'path'
+import { validateCredentials, Credentials, MigrationRecord } from './helpers'
+import Surreal from 'surrealdb.js'
 
 class SurrealDBAdapter implements Adapter<Surreal> {
   private db: Surreal = new Surreal()
 
-  private url: string;
-  private credentials: Credentials;
-  private migrationTable: string;
+  private url: string
+  private credentials: Credentials
+  private migrationTable: string
 
   constructor({ url, credentials, migrationTable }: { url: string, credentials: Credentials, migrationTable: string }) {
     // Check if url is set.
@@ -38,7 +38,7 @@ class SurrealDBAdapter implements Adapter<Surreal> {
     // Sign in to SurrealDB
     await this.db.signin(this.credentials)
     
-    // @ts-ignore-line Wait for Surreal to type this
+    // @ts-expect-error Wait for Surreal to type this
     // Query migration table
     const tableExists = (await this.db.query('INFO FOR DB'))[0]?.tables[this.migrationTable]
 
@@ -54,17 +54,17 @@ class SurrealDBAdapter implements Adapter<Surreal> {
   }
 
   async disconnect(): Promise<void> {
-    await this.db.invalidate();
+    await this.db.invalidate()
   }
 
   getTemplatePath(sourceMigrationExtension: string): string {    
-    return path.join(__dirname, '..', 'migrationTemplates', ('async.' + sourceMigrationExtension));
+    return path.join(__dirname, '..', 'migrationTemplates', ('async.' + sourceMigrationExtension))
   }
 
   async getExecutedMigrationNames(): Promise<string[]> {
     const result: MigrationRecord[] = (await this.db.query(`SELECT name FROM ${this.migrationTable}`))
     
-    const names = Array.isArray(result[0]) ? result[0].map(({ name }: { name: string }) => name) : [];
+    const names = Array.isArray(result[0]) ? result[0].map(({ name }: { name: string }) => name) : []
 
     return names
   }
