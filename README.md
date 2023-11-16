@@ -54,6 +54,8 @@ module.exports = {
 
 ### 🚀 Usage:
 
+For using east I would like to refer you to their [documentation](https://github.com/okv/east#readme)!
+
 Create a migration using the `east create <name>`. With this adapter in use it will generate a migration file that looks like this:
 
 ```js
