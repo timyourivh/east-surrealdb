@@ -41,15 +41,16 @@ To make it work with your database you need to configure the adapter using the .
 require('dotenv').config();
 
 module.exports = {
-  adapter: "east-surrealdb", // Important
-  url: process.env.DB_URL ?? "http://127.0.0.1:8000/rpc", // Required
-  credentials: { // Required
-    username: process.env.DB_USERNAME, // Required
-    password: process.env.DB_PASSWORD, // Required
-    namespace: process.env.DB_NAMESPACE, // Required
-    database: process.env.DB_DATABASE, // Required
-    scope: process.env.DB_SCOPE // Optional
-  }
+  adapter: "east-surrealdb", // [Required] Tells east to use this adapter
+  url: process.env.DB_URL ?? "http://127.0.0.1:8000/rpc", // [Required] The url where your SurrealDB lives at
+  credentials: { // [Required] The credentials used to log into SurrealDB
+    username: process.env.DB_USERNAME, // [Required]
+    password: process.env.DB_PASSWORD, // [Required]
+    namespace: process.env.DB_NAMESPACE, // [Required]
+    database: process.env.DB_DATABASE, // [Required]
+    scope: process.env.DB_SCOPE // [Optional]
+  },
+  migrationTable: '_migration' // [Optional] Allows you to set a custom name for the table that will contain the migrations
 }
 ```
 
