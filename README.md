@@ -1,5 +1,5 @@
-<p align="center">
-  <img alt="SurrealDB Logo" src="https://surrealdb.com/static/img/text-be42529fe0e268f3fbabfb42065eeec7.svg" style="height: 50px; padding: 5px">
+<p align="center" style="background-color: #000; width: 100%; padding: 24px;">
+  <img alt="SurrealDB Logo" src="https://surrealdb.com/static/img/text-be42529fe0e268f3fbabfb42065eeec7.svg" style="height: 50px;>
 </p>
 
 ---
