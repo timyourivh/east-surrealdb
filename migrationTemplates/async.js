@@ -9,5 +9,5 @@ exports.migrate = async (db) => {
 exports.rollback = async (db) => {
   db = Object.assign(new Surreal(), db)
 
-  // Rollback isntructions
+  // Rollback instructions
 }
