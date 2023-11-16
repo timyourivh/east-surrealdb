@@ -41,7 +41,7 @@ To make it work with your database you need to configure the adapter using the .
 require('dotenv').config();
 
 module.exports = {
-  adapter: "east-surrealdb", // Impoertant
+  adapter: "east-surrealdb", // Important
   url: process.env.DB_URL ?? "http://127.0.0.1:8000/rpc", // Required
   credentials: { // Required
     username: process.env.DB_USERNAME, // Required
