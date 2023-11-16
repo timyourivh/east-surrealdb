@@ -36,6 +36,8 @@ To make it work with your database you need to configure the adapter using the .
 > Always keep your database credentials safe and secure and never commit them to GitHub. You can do this by storing them in a `.env` file and adding that file to your `.gitignore`.
 
 ```js
+// .eastrc
+
 require('dotenv').config();
 
 module.exports = {
