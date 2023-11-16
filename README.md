@@ -19,11 +19,11 @@ To be able to use this you need the `surreal.js`, `east` packages installed.
 ### 💻 Installation:
 
 ```bash
-pnpm add east-surrealdb
+pnpm add east-surrealdb -D
 # Or
-yarn add east-surrealdb
+yarn add east-surrealdb -D
 # Or
-npm install east-surrealdb
+npm install east-surrealdb --save-dev
 ```
 
 ---
@@ -39,13 +39,14 @@ To make it work with your database you need to configure the adapter using the .
 require('dotenv').config();
 
 module.exports = {
-  adapter: "east-surrealdb",
-  url: process.env.DB_URL ?? "http://127.0.0.1:8000/rpc",
-  credentials: {
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    namespace: process.env.DB_NAMESPACE,
-    database: process.env.DB_DATABASE
+  adapter: "east-surrealdb", // Impoertant
+  url: process.env.DB_URL ?? "http://127.0.0.1:8000/rpc", // Required
+  credentials: { // Required
+    username: process.env.DB_USERNAME, // Required
+    password: process.env.DB_PASSWORD, // Required
+    namespace: process.env.DB_NAMESPACE, // Required
+    database: process.env.DB_DATABASE, // Required
+    scope: process.env.DB_SCOPE // Optional
   }
 }
 ```
@@ -100,7 +101,7 @@ exports.rollback = async (db) => {
 }
 ```
 
-This example creates a schemafull table named "test" and adds a field named "name" to it with type "string".When rolling back this migration it will "remove" the table making this migration undone.
+This example creates a schemafull table named "test" and adds a field named "name" to it with type "string". When rolling back this migration it will "remove" the table making this migration undone.
 
 --- 
 
