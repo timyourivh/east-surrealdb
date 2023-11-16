@@ -106,6 +106,10 @@ This example creates a schemafull table named "test" and adds a field named "nam
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
+### ⚠️ Disclaimer:
+
+I am not part of or affiliated with the SurrealDB team. I am simply an enthusiast of SurrealDB, eager to share my passion and insights. Any views or opinions expressed are solely my own and do not reflect the official stance of SurrealDB or its developers.
+
 ### 📜 License:
 
 ```
