@@ -19,11 +19,11 @@ To be able to use this you need the `surreal.js`, `east` packages installed.
 ### 💻 Installation:
 
 ```bash
-pnpm add east-surrealdb -D
+pnpm add east-surrealdb
 # Or
-yarn add east-surrealdb -D
+yarn add east-surrealdb
 # Or
-npm install east-surrealdb --save-dev
+npm install east-surrealdb
 ```
 
 ---
