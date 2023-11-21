@@ -95,6 +95,15 @@ exports.migrate = async (db) => {
   
   await db.query('DEFINE TABLE test SCHEMAFULL')
   await db.query('DEFINE FIELD name ON TABLE test TYPE string')
+
+  // OR (use transactions)
+  
+  await db.query(`
+    BEGIN TRANSACTION;
+    DEFINE TABLE test SCHEMAFULL;
+    DEFINE FIELD name ON TABLE test TYPE string;
+    COMMIT TRANSACTION; 
+  `)
 }
 
 exports.rollback = async (db) => {
